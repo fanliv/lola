@@ -17,6 +17,7 @@ lola()
     rpColor = 0x594918
     normalColor = #E3BA3D
     statusColor = 0x001F2D
+    statusColor2 = 0x0D1E2D
     
     ; Toa do nut RP
     
@@ -35,6 +36,14 @@ lola()
             PixelSearch, , , %x1%, %y1%, %x2%, %y2%, %statusColor%, , Fast RGB
             if (ErrorLevel) {
                 ; ToolTip, Dang tim tran
+                PixelSearch, , , %x1%, %y1%, %x2%, %y2%, %statusColor2%, , Fast RGB
+                if(ErrorLevel) {
+                    
+                } else {
+                    ; ToolTip, da tim thay tran
+                    
+                    ControlClick, x636 y560, League of Legends
+                }
                 
             } else {
                 ; ToolTip, da tim thay tran
