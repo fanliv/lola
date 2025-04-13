@@ -13,44 +13,28 @@ lola()
 
 {
     title = League of Legends
-    
-    rpColor = 0x594918
-    normalColor = #E3BA3D
-    statusColor = 0x001F2D
-    statusColor2 = 0x0D1E2D
-    
-    ; Toa do nut RP
-    
-    
+    statusColor = 0x01212F
+
     ;Toa do status
     x1 = 1135
     y1 = 51
     x2 = 1145
     y2 = 60
-    
-    
-    CoordMode, Pixel, Client
+
+    CoordMode, Pixel, Screen
+    CoordMode, Mouse, Client
     Loop {
-        if(WinActive("League of Legends")) {
-            ; Tim nut rp
-            PixelSearch, , , %x1%, %y1%, %x2%, %y2%, %statusColor%, , Fast RGB
+        if(WinExist("League of Legends")) {
+            WinGetPos, X, Y, W, H, League of Legends
+            PixelSearch, , , % X+x1, % Y+y1, % X+x2, % Y+y2, %statusColor%, , Fast RGB
             if (ErrorLevel) {
-                ; ToolTip, Dang tim tran
-                PixelSearch, , , %x1%, %y1%, %x2%, %y2%, %statusColor2%, , Fast RGB
-                if(ErrorLevel) {
-                    
-                } else {
-                    ; ToolTip, da tim thay tran
-                    
-                    ControlClick, x636 y560, League of Legends
-                }
-                
+                ;ToolTip, dang tim tran
             } else {
-                ; ToolTip, da tim thay tran
+                ;ToolTip, da tim thay tran
                 ControlClick, x636 y560, League of Legends
             }
         }
         Sleep, 1500
     }
-    
+
 }
